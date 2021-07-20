@@ -1,3 +1,4 @@
+import * as PIXI from "pixi.js"
 import { DisplayObject } from "pixi.js";
 import { YogaLayout } from "./YogaLayout";
 import TransformStatic = PIXI.TransformStatic;
