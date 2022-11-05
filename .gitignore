@@ -4,4 +4,3 @@ src/*.js
 doc
 .cache
 dist
-lib
