@@ -1,5 +1,7 @@
 import { YogaLayout } from "./YogaLayout";
-import {Container} from "pixi.js";
+import * as PIXI from 'pixi.js';
+// @ts-ignore
+import Container = PIXI.Container;
 
 declare module "pixi.js" {
     interface Container {
@@ -69,7 +71,6 @@ export function applyContainerPolyfill(proto: any = Container.prototype) {
                 this.yoga.addChild(child.yoga);
             }
 
-            // @ts-ignore
             if (this.flexRecursive && child instanceof Container && child.flex !== false) {
                 child.flexRecursive = true;
             }
@@ -86,7 +87,6 @@ export function applyContainerPolyfill(proto: any = Container.prototype) {
             this.yoga.addChild(child.yoga, index);
         }
 
-        // @ts-ignore
         if (this.flexRecursive && child instanceof Container && child.flex !== false) {
             child.flexRecursive = true;
         }

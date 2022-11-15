@@ -33,7 +33,8 @@ declare module "pixi.js" {
 }
 
 
-export function applyDisplayObjectPolyfill(prototype: any = DisplayObject.prototype) {
+// @ts-ignore
+export function applyDisplayObjectPolyfill(prototype: any = PIXI.DisplayObject.prototype) {
 
     Object.defineProperty(prototype, "yoga", {
         get(): boolean {
