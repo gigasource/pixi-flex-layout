@@ -4,7 +4,6 @@ import { YogaConstants } from "./YogaContants";
 import { YogaLayoutConfig } from "./YogaLayoutConfig";
 import { yogaAnimationManager } from "./YogaAnimationManager";
 import YogaEdges = YogaConstants.YogaEdges;
-import DisplayObject = PIXI.DisplayObject;
 import ComputedLayout = YogaConstants.ComputedLayout;
 import FlexDirection = YogaConstants.FlexDirection;
 import JustifyContent = YogaConstants.JustifyContent;
@@ -12,10 +11,10 @@ import Align = YogaConstants.Align;
 import FlexWrap = YogaConstants.FlexWrap;
 import Display = YogaConstants.Display;
 import PositionType = YogaConstants.PositionType;
+import {DisplayObject} from "pixi.js";
 
 export type PixelsOrPercentage = number | string;
 export type YogaSize = PixelsOrPercentage | "pixi" | "auto";
-
 
 export interface IAnimationState {
     fromX: number;

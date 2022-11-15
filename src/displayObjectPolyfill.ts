@@ -5,7 +5,7 @@ import TransformStatic = PIXI.Transform;
 
 const NineSlicePlane = (<any>PIXI).NineSlicePlane || (<any>PIXI).mesh.NineSlicePlane;
 
-declare module "pixi.js" {
+declare module "@pixi/display" {
     export interface DisplayObject {
         yoga: YogaLayout;
 
@@ -33,8 +33,7 @@ declare module "pixi.js" {
 }
 
 
-// @ts-ignore
-export function applyDisplayObjectPolyfill(prototype: any = PIXI.DisplayObject.prototype) {
+export function applyDisplayObjectPolyfill(prototype: any = DisplayObject.prototype) {
 
     Object.defineProperty(prototype, "yoga", {
         get(): boolean {
