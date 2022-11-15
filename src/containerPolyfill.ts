@@ -1,9 +1,8 @@
-import * as PIXI from "pixi.js";
 import { YogaLayout } from "./YogaLayout";
-import Container = PIXI.Container;
+import {Container} from "pixi.js";
 
 declare module "pixi.js" {
-    export interface Container {
+    interface Container {
         /**
          * True to enable flex for direct children. See also: flexRecursive
          */
@@ -17,6 +16,7 @@ declare module "pixi.js" {
 
 }
 
+// @ts-ignore
 export function applyContainerPolyfill(proto: any = Container.prototype) {
 
     Object.defineProperty(proto, "flex", {
@@ -27,7 +27,8 @@ export function applyContainerPolyfill(proto: any = Container.prototype) {
             if (!this.flex && newFlex) {
                 this.children.forEach(child => {
                     this.yoga.addChild(child.yoga);
-                    if (this.flexRecursive && child instanceof PIXI.Container && child.flex !== false) {
+                    // @ts-ignore
+                    if (this.flexRecursive && child instanceof Container && child.flex !== false) {
                         child.flexRecursive = true;
                     }
                 });
@@ -68,7 +69,8 @@ export function applyContainerPolyfill(proto: any = Container.prototype) {
                 this.yoga.addChild(child.yoga);
             }
 
-            if (this.flexRecursive && child instanceof PIXI.Container && child.flex !== false) {
+            // @ts-ignore
+            if (this.flexRecursive && child instanceof Container && child.flex !== false) {
                 child.flexRecursive = true;
             }
             this.emit(YogaLayout.NEED_LAYOUT_UPDATE);
@@ -84,7 +86,8 @@ export function applyContainerPolyfill(proto: any = Container.prototype) {
             this.yoga.addChild(child.yoga, index);
         }
 
-        if (this.flexRecursive && child instanceof PIXI.Container && child.flex !== false) {
+        // @ts-ignore
+        if (this.flexRecursive && child instanceof Container && child.flex !== false) {
             child.flexRecursive = true;
         }
         this.emit(YogaLayout.NEED_LAYOUT_UPDATE);

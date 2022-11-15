@@ -1,7 +1,7 @@
 import * as PIXI from "pixi.js"
 import { DisplayObject } from "pixi.js";
 import { YogaLayout } from "./YogaLayout";
-import TransformStatic = PIXI.TransformStatic;
+import TransformStatic = PIXI.Transform;
 
 const NineSlicePlane = (<any>PIXI).NineSlicePlane || (<any>PIXI).mesh.NineSlicePlane;
 

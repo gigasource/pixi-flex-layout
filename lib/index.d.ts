@@ -15,4 +15,4 @@ export declare function initializeYogaLayout(options?: IFlexLayoutOptions): void
  * If renderer is set yoga boundBoxCheck/layotutUpdate in updateTransform will be called ONLY when rendering.
  * @param renderer
  */
-export declare function yogaSetRenderer(renderer: PIXI.WebGLRenderer | PIXI.CanvasRenderer): void;
+export declare function yogaSetRenderer(renderer: PIXI.AbstractRenderer): void;

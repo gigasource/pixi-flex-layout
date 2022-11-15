@@ -101,6 +101,7 @@ export class YogaLayout {
     private _marginTop: number = 0;
     private _marginLeft: number = 0;
 
+    // @ts-ignore
     constructor(pixiObject: DisplayObject = new DisplayObject()) {
         this.node = Yoga.Node.create();
         pixiObject.__hasYoga = true;

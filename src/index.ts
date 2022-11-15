@@ -24,7 +24,7 @@ export function initializeYogaLayout(options: IFlexLayoutOptions = {usePixiShare
     applyDisplayObjectPolyfill();
     applyContainerPolyfill();
     if (options.usePixiSharedTicker) {
-        PIXI.ticker.shared.add(delta => yogaAnimationManager.update(delta));
+        PIXI.Ticker.shared.add(delta => yogaAnimationManager.update(delta));
     }
 }
 
@@ -34,7 +34,7 @@ export function initializeYogaLayout(options: IFlexLayoutOptions = {usePixiShare
  * If renderer is set yoga boundBoxCheck/layotutUpdate in updateTransform will be called ONLY when rendering.
  * @param renderer
  */
-export function yogaSetRenderer(renderer: PIXI.WebGLRenderer | PIXI.CanvasRenderer) {
+export function yogaSetRenderer(renderer: PIXI.AbstractRenderer) {
     renderer.on("prerender", () => YogaLayout.isRendering = true)
     renderer.on("postrender", () => YogaLayout.isRendering = false)
 }
